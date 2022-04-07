@@ -1,0 +1,6 @@
+text = input()
+mention = 'Glo Academy'
+if mention in text:
+    print('YES')
+else:
+    print('NO')
