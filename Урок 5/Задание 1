@@ -1,0 +1,6 @@
+password = input()
+true_password = input()
+if password == true_password:
+    print('Все окей!')
+else:
+    print('Пароли не совпадают!')
