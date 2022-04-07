@@ -1,0 +1,7 @@
+mail = input()
+symbol = '@'
+dot = '.'
+if symbol in mail and dot in mail:
+    print('Корректный')
+else:
+    print('Некорректный')
