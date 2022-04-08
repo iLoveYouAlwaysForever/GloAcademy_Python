@@ -1,0 +1,11 @@
+n = int(input())
+maximum = minimum = int(input())
+for i in range(n - 1):
+    number = int(input())
+    if number > maximum:
+        maximum = number
+    if number < minimum:
+        minimum = number
+print('Минимум равен', minimum)
+print('Максимум равен', maximum)
+    
