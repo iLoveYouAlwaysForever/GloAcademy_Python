@@ -1,0 +1,12 @@
+n = int(input())
+total = 0
+while True:
+    last_digit = n % 10
+    total += last_digit
+    n = n // 10
+    if total < 10 and n == 0:
+        break
+    elif total > 9 and n == 0:
+        n = total
+        total = 0
+print(total)
