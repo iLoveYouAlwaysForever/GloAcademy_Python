@@ -1,0 +1,5 @@
+symbol = input()
+if ord(symbol) >= 1040 and ord(symbol) < 1072:
+    print('YES')
+else:
+    print('NO')
