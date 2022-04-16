@@ -1,0 +1,7 @@
+symbol = input()
+if symbol == symbol.upper() and (ord(symbol) > 64 and ord(symbol) < 91):
+    print(symbol.lower())
+elif symbol == symbol.lower() and (ord(symbol) > 96 and ord(symbol) < 123):
+    print(symbol.upper())
+else:
+    print(symbol)
