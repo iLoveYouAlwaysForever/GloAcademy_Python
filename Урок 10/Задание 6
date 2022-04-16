@@ -1,0 +1,9 @@
+text = input()
+all_digits = '0123456789'
+text_digits = ''
+
+for i in text:
+    if i in all_digits:
+        text_digits += i
+
+print(text_digits)
