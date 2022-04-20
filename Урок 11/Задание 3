@@ -1,0 +1,13 @@
+ip_adress = input()
+ip_adress_list = ip_adress.split('.')
+total = 0
+
+for i in ip_adress_list:
+    if 0 <= int(i) and int(i) <= 255:
+        total += 1
+    else:
+        print('NO')
+        break
+
+if total == 4:
+    print('YES')
