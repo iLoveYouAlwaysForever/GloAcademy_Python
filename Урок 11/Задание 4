@@ -1,0 +1,10 @@
+string_numbers = input()
+string_numbers_list = string_numbers.split()
+total = 0
+
+for i in range(len(string_numbers_list)):
+    for j in range(i + 1, len(string_numbers_list)):
+        if string_numbers_list[i] == string_numbers_list[j]:
+            total += 1
+
+print(total)
