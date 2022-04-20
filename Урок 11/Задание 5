@@ -1,0 +1,9 @@
+string_numbers = input()
+string_numbers_list = string_numbers.split()
+unique_numbers_list = []
+
+for number in string_numbers_list:
+    if string_numbers_list.count(number) == 1:
+        unique_numbers_list.append(number)
+        
+print(*unique_numbers_list)
