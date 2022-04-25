@@ -1,0 +1,6 @@
+def month(number):
+    days_in_month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+    return days_in_month[number - 1]
+
+number1 = int(input())
+print(month(number1))
