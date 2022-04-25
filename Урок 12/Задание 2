@@ -1,0 +1,11 @@
+list1 = input().split()
+list2 = input().split()
+
+def max_list(list_input):
+    list3 = []
+    for i in list_input:
+        list3.append(int(i))
+        
+    return max(list3)
+
+print(max_list(list1) * max_list(list2))
