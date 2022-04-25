@@ -1,0 +1,10 @@
+def star_data(data):
+    list_data = data.split('.')
+    year = int(list_data[2]) % 100
+    if int(list_data[0]) * int(list_data[1]) == year:
+        return True
+    else:
+        return False
+
+data = input()
+print(star_data(data))
