@@ -1,0 +1,7 @@
+def delivery_cost(package):
+    total_cost = 100 + (int(package) - 1) * 50
+    return total_cost
+
+
+cost = int(input())
+print(delivery_cost(cost))
