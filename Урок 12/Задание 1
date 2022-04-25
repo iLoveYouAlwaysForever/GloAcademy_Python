@@ -1,0 +1,11 @@
+number1 = int(input())
+number2 = int(input())
+
+def rank(number):
+    total_rank = 0
+    while number != 0:
+        number //= 10
+        total_rank += 1
+    return total_rank
+
+print(rank(number1) * rank(number2))
