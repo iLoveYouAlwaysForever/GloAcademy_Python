@@ -1,0 +1,31 @@
+import random
+
+print('Добро пожаловать в обратную игру "Угадай число"')
+
+print('Укажите левую границу числа: ')
+left_border = int(input())
+
+print('Укажите правую границу числа: ')
+right_border = int(input())
+
+print('Загадайте число в указанном вами диапазоне.')
+print('Отвечая словами - больше, меньше или угадал, помогите компютеру угадать ваше число!')
+
+count = 0
+while True:
+    count += 1
+    secret_number = random.randint(left_border, right_border)
+    print('Ваше число:', secret_number)
+
+    find_number = input()
+    if find_number == 'меньше':
+        right_border = secret_number - 1
+
+    elif find_number == 'больше':
+        left_border = secret_number + 1
+
+    elif find_number == 'угадал':
+        print('Компьютер угадал ваше число -', secret_number, 'за', count, 'попыток!')
+        break
+
+print('Спасибо за игру. Ждем вас еще!')
