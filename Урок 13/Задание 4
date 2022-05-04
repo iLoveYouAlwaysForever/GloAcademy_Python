@@ -1,0 +1,69 @@
+import random
+
+print('Добро пожаловать в игру "Угадай число"')
+
+
+def is_valid(user_input):
+    if user_input.isdigit():
+        user_number = int(user_input)
+        if user_number >= left_border and user_number <= right_border:
+            return True
+        else:
+            return False
+    else:
+        return False
+
+
+def game():
+
+    global right_border, left_border
+    
+    print('Укажите правую границу числа: ')
+    right_border = int(input())
+    left_border = 1
+    
+    secret_number = random.randint(left_border, right_border)
+    count_attempt = 0
+
+    while True:
+        print('Введите число от', left_border, 'до', right_border)
+        user_input = input()
+
+        if not is_valid(user_input):
+            continue
+    
+        user_number = int(user_input)
+        count_attempt += 1
+        
+        if secret_number > user_number:
+            print('Загаданное число больше, чем введенное вами число')
+        elif secret_number < user_number:
+            print('Загаданное число меньше, чем введенное вами число')
+        else:
+            print('Ура! Вы угадали загаданное число за', count_attempt, 'попыток.')
+            break
+
+    optimal_count_attempt = 0
+    find_number = right_border // 2
+    
+    while True:
+        optimal_count_attempt += 1
+        if find_number < secret_number:
+            left_border = find_number
+            find_number = (right_border - left_border) // 2 + left_border
+        elif find_number > secret_number:
+            right_border = find_number
+            find_number = (right_border - left_border) // 2 + left_border
+        else:
+            print('Оптимальное число попыток =', optimal_count_attempt)
+            break    
+
+game()
+
+print('Сыграть еще раз?(да/нет)')
+new_game = input()
+
+if new_game == 'да':
+    game()
+
+print('Спасибо за игру. Ждем вас еще!')
