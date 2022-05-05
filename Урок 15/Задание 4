@@ -1,0 +1,54 @@
+def game():
+    secret_word = 'академия'
+    user_word = '********'
+    print(user_word)
+    count = 0
+    russian_letters = 'а б в г д е ж з и к л м н о п р с т у ф х ц ч ш щ ъ ы ь э ю я'
+    input_letters = []
+
+    def update_user_word(secret_word, user_word, char):
+        new_user_word = ''
+        for i in range(len(secret_word)):
+            if secret_word[i] == char:
+                new_user_word += char
+            else:
+                new_user_word += user_word[i]
+
+        return new_user_word
+
+    while user_word != secret_word:
+        print('Введите русскую букву')
+        user_char = input()
+        
+        if len(user_char) != 1 or user_char.lower() not in russian_letters:
+            continue
+
+        if user_char in input_letters:
+            print('Вы уже вводили данную букву')
+            continue
+        else:
+            input_letters.append(user_char)
+            count += 1
+        
+        new_user_word = update_user_word(secret_word, user_word, user_char)
+
+        if user_word == new_user_word:
+            print('К сожалению, такой буквы нет в слове')
+        else:
+            print('Поздравляем, такая буква есть в слове')
+
+        user_word = new_user_word
+
+        print(user_word)
+
+    print('Ура, вы угадали загаданное слово за', count, 'попыток')
+
+
+game()
+print('Хотите начать сначала? Нажмите Да или Нет')
+new_game = input()
+
+if new_game == 'Да':
+    game()
+
+print('Спасибо за игру!')
