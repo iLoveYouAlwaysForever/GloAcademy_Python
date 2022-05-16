@@ -1,0 +1,76 @@
+def start_game():
+    def create_field():
+        field = []
+        for i in range(3):
+            field.append(['*'] * 3)
+
+        return field
+
+    def print_field(field):
+        for i in range(3):
+            for j in range(3):
+                print(field[i][j], end='')
+            print()
+
+    def win(field):
+        for i in range(3):
+            if field[i][0] != '*' and field[i][0] == field[i][1] == field[i][2]:
+                return True
+        for i in range(3):
+            if field[0][i] != '*' and field[0][i] == field[1][i] == field[2][i]:
+                return True
+        if field[0][0] != '*' and field[0][0] == field[1][1] == field[2][2]:
+            return True
+        if field[0][2] != '*' and field[0][2] == field[1][1] == field[2][0]:
+            return True
+
+        return False
+
+    def end_game(field):
+        if win(field):
+            return True
+
+        for i in range(3):
+            for j in range(3):
+                if field[i][j] == '*':
+                    return False
+
+        return True
+
+    field = create_field()
+
+    current_sybmol = 'X'
+
+    while not end_game(field):
+        print_field(field)
+        
+        digits = [1, 2, 3]
+        print('Введите номера строки и столбца в диспазоне от 1 до 3')
+        row = int(input())
+        column = int(input())
+
+        if row not in digits or column not in digits or field[row - 1][column - 1] != '*':
+                continue
+        field[row - 1][column - 1] = current_sybmol
+
+        if current_sybmol == 'X':
+            current_sybmol = 'O'
+        else:
+            current_sybmol = 'X'
+
+    print_field(field)
+
+    if current_sybmol == 'X':
+        print('Ура! Победил О')
+    else:
+        print('Ура! Победил X')
+
+start_game()
+
+print('Хотите начать сначала? Нажмите Да или Нет')
+new_game = input()
+
+if new_game == 'Да':
+    start_game()
+
+print('Спасибо за игру!')
