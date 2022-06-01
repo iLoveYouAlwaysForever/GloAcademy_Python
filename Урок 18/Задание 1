@@ -1,0 +1,34 @@
+def start_test():
+    questions = [
+        'Сколько будет два плюс два умноженное на два?',
+        'Бревно нужно распилить на 10 частей, сколько надо сделать распилов?',
+        'На двух руках 10 пальцев. Сколько пальцев на 5 руках?',
+        'Укол делают каждые полчаса, сколько нужно минут для трех уколов?',
+        'Пять свечей горело, две потухли. Сколько свечей осталось?'
+    ]
+    
+    answers = [6, 9, 25, 60, 2]
+    
+    count_right_answers = 0
+    
+    for i in range(len(questions)):
+    
+        print(questions[i])
+        
+        user_answer = int(input())
+    
+        right_answer = answers[i]
+        if user_answer == right_answer:
+            count_right_answers += 1
+    
+    print('Количество правильных ответов =', count_right_answers)
+
+start_test()
+
+print('Хотите начать сначала? Нажмите Да или Нет')
+new_test = input()
+
+if new_test.lower() == 'да':
+    start_test()
+
+print('До новых встреч!')
